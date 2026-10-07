@@ -14,9 +14,9 @@ def average(scores: list[float]) -> float:
     return round(sum(scores)/len(scores),2)
 
 def ranking(names: list[str], scores: list[float]) -> list[str]:
-    pairs = [list(zip(names, scores))]
+    pairs = list(zip(names, scores))
     pairs.sort(key=lambda x: x[1], reverse=True)
-    return [name for name, score in pairs]
+    return [name for name, scores in pairs]
 
 def above_average(names: list[str], scores: list[float]) -> list[str]:
     avg = average(scores)
@@ -25,3 +25,10 @@ def above_average(names: list[str], scores: list[float]) -> list[str]:
         if scores[i] > avg:
             result.append(names[i])
     return result
+
+names = ["Аня", "Боря", "Вика"]
+scores = [7.0, 9.0, 9.0]
+print("Победитель:", winner(names, scores))
+print("Средний результат:", average(scores))
+print("Рейтинг:", ranking(names, scores))
+print("Выше среднего:", above_average(names, scores))

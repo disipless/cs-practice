@@ -8,7 +8,11 @@ def unique_sorted(values: list) -> list:
     values_sorted = sorted(set(values))
     return values_sorted
 
+def common(first: list, second: list) -> list:
+    return sorted(set(first) & set(second))
 
+def only_in_first(first: list, second: list) -> list:
+    return sorted(set(first) - set(second))
 
 
 
